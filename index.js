@@ -11,8 +11,21 @@ app.get('/:op/:n1/:n2',(req,res)=>
 {
 
     var op = (req.params.op);
-    var n1 = parseInt(req.params.n1);
-    var n2 = parseInt(req.params.n2);
+
+    var num1 = (req.params.n1)
+    var num2 = (req.params.n2)
+
+
+    if(num1.includes("."))
+        var n1 = parseFloat(num1);
+    else
+        var n1 = parseInt(num1);
+
+    if(num2.includes("."))
+        var n2 = parseFloat(num2);
+    else
+        var n2 = parseInt(num2);
+  
     var result;
     
     switch (op)
